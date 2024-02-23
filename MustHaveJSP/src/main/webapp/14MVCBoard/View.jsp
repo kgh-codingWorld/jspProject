@@ -11,44 +11,38 @@
 	
 	<!-- 게시글 정보 -->
 	<tr>
-		<td>번호</td> <td>${ dto.idx }</td>
-		<td>작성자</td> <td>${ dto.name }</td>
+		<td>번호</td> <td>${ dto.board_No }</td>
+		<td>작성자</td> <td>${ dto.user_Id }</td>
 	</tr>
 	<tr>
-		<td>작성일</tr> <td>${ dto.postdate }</td>
-		<td>조회수</tr> <td>${ dto.visitcount }</td>
+		<td>작성일</tr> <td>${ dto.board_Date }</td>
+		<td>조회수</tr> <td>${ dto.board_Hit }</td>
 	</tr>
 	<tr>
 		<td>제목</td>
-		<td colspan="3">${ dto.title }</td>
+		<td colspan="3">${ dto.board_Title }</td>
 	</tr>
 	<tr>
 		<td>내용</td>
-		<td colspan="3" height="100">${ dto.content }</td>
+		<td colspan="3" height="100">${ dto.board_Content}</td>
 	</tr>
 	
 	<!-- 첨부파일 -->
 	<tr>
 		<td>첨부파일</td>
 		<td>
-			<c:if test="${ not empty dto.ofile }">
-			${ dto.ofile }
-			<a href="../mvcboard/download.kgh?ofile=${ dto.ofile }&sfile=${ dto.sfile }&idx=${ dto.idx }">
-			다운로드
-			</a>
+			<c:if test="${ not empty dto.boardImg }">
 			</c:if>
 		</td>
-		<td>다운로드수</td>
-		<td>${ dto.downcount }</td>
 	</tr>
 	
 	<!-- 하단 메뉴(버튼) -->
 	<tr>
 		<td colspan="4" align="center">
-			<button type="button" onclick="location.href='../mvcboard/pass.kgh?mode=edit&idx=${ param.idx }';">
+			<button type="button" onclick="location.href='../mvcboard/pass.kgh?mode=edit&idx=${ param.board_No }';">
 			수정하기
 			</button>
-			<button type="button" onclick="location.href='../mvcboard/pass.kgh?mode=delete&idx=${ param.idx }';">
+			<button type="button" onclick="location.href='../mvcboard/pass.kgh?mode=delete&idx=${ param.board_No }';">
 			삭제하기
 			</button>
 			<button type="button" onclick="location.href='../mvcboard/list.kgh';">

@@ -89,12 +89,12 @@ dao.close(); // DB 연결 닫기
 		</tr>
 		<%
 		} else {
-		// 게시물이 있을 때
-		int virtualNum = 0; // 화면상에서의 게시물 번호
-		int countNum = 0;
-		for (BoardDTO dto : boardLists) {
+				// 게시물이 있을 때
+				int virtualNum = 0; // 화면상에서의 게시물 번호
+				int countNum = 0;
+				for (BoardDTO dto : boardLists) {
 			//virtualNum = totalCount--; // 전체 게시물 수에서 시작해 1씩 감소
-			virtualNum = totalCount- (((pageNum - 1)*pageSize)+countNum++); 
+			virtualNum = totalCount- (((pageNum - 1)*pageSize)+countNum++);
 		%>
 		<tr align="center">
 			<td><%=virtualNum%></td>
@@ -111,7 +111,7 @@ dao.close(); // DB 연결 닫기
 		</tr>
 		<%
 		}
-		}
+				}
 		%>
 	</table>
 	<!-- 목록 하단의 [글쓰기] 버튼 -->
@@ -119,8 +119,8 @@ dao.close(); // DB 연결 닫기
 		<!-- 페이징 처리 -->
 		<tr align="center">
 			<td>
-				<%= BoardPage.pagingStr(totalCount, pageSize,
-						blockPage, pageNum, request.getRequestURI()) %>
+				<%=BoardPage.pagingStr(totalCount, pageSize,
+						blockPage, pageNum, request.getRequestURI())%>
 			</td>
 			<!-- 글쓰기 버튼 -->
 			<td><button type="button" onclick="location.href='Write.jsp';">글쓰기</button></td>

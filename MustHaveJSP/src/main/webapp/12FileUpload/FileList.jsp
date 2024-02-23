@@ -1,5 +1,5 @@
 <%@page import="java.net.URLEncoder"%>
-<%@page import="fileupload.MyFileDTO"%>
+<%@page import="fileupload.MyfileDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="fileupload.MyFileDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,14 +15,16 @@
 <a href="FileUploadMain.jsp">파일 등록하기</a>
 <%
 MyFileDAO dao = new MyFileDAO();
-List<MyFileDTO> fileLists = dao.myFileList();
+List<MyfileDTO> fileLists = dao.myFileList();
 dao.close();
 %>
 <table border="1">
 	<tr>
 		<th>No</th><th>작성자</th><th>제목</th><th>카테고리</th><th>원본파일명</th><th>저장된파일명</th><th>작성일</th><th>다운로드</th>
 	</tr>
-	<%for(MyFileDTO f : fileLists) { %>
+	<%
+	for(MyfileDTO f : fileLists) {
+	%>
 		<tr>
 			<td><%= f.getIdx() %></td>
 			<td><%= f.getName() %></td>

@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- java 파일에서 만든 객체를 액션태그를 이용하여 처리 -->
+
+<h2>useBean 액션 태그</h2>
+<h3>자바빈스 생성하기</h3>
+<jsp:useBean id="person" class="common.Person" scope="request" />
+
+<h3>setProperty 액션 태그로 자바빈즈 속성 지정하기</h3>
+<jsp:setProperty name="person" property="name" value="임꺽정" />
+<jsp:setProperty name="person" property="age" value="41" />
+<!-- request.setAttribute("requestPerson", new Person("김기원", 40)); -->
+
+<h3>getProperty 액션 태그로 자바빈즈 속성 읽기</h3>
+<ul>
+	<li>이름: <jsp:getProperty name="person" property="name" /></li>
+	<li>나이: <jsp:getProperty name="person" property="age"/>
+	<!-- Person rPerson = (Person)(reqruest.getAttribute("requestPerson")); -->
+</ul>
+
+</body> 
+</html>
